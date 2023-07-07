@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./exemplo-binding.component.scss']
 })
 export class ExemploBindingComponent {
-
+  numero: number = 0;
+  
 }

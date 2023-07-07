@@ -1,1 +1,9 @@
-<p>diretiva-ng-class works!</p>
+<div class="box">
+   <h1>{{ letter }}</h1>
+   <div [ngClass]="{'text-white' : valid}">
+    <h1>{{ name }}</h1>
+   </div>
+   <div>
+    <img [src]="img" alt="erro" [style]="imgStyle">
+   </div>
+</div>

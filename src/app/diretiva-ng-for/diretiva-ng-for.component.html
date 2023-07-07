@@ -1,1 +1,12 @@
-<p>diretiva-ng-for works!</p>
+<div class="color">
+    <div [style]="{'color': 'red'}">{{ aviso }}</div>
+    <div>
+    <button (click)="addValor()">adiciona</button>
+    <button (click)="tiraValor()">retira</button>
+  </div>
+  <div>
+    <div *ngFor="let mostra of lista" class="divList">
+        <div>{{mostra.numero}}</div>
+    </div>
+  </div>
+</div>
