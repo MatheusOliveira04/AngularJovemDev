@@ -15,6 +15,7 @@ import { DiretivaNgSwitchComponent } from './diretiva-ng-switch/diretiva-ng-swit
 import { ExemploBindingComponent } from './exemplo-binding/exemplo-binding.component';
 import { ExemploPipesComponent } from './exemplo-pipes/exemplo-pipes.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
+import { MicroondasComponent } from './microondas/microondas.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
     ExemploBindingComponent,
     ExemploPipesComponent,
     MenuPrincipalComponent,
+    MicroondasComponent,
   ],
   imports: [
     BrowserModule,
