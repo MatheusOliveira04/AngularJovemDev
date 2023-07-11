@@ -1,0 +1,13 @@
+<h2>Formulário</h2>
+
+<div>
+    <input type="text" [(ngModel)]="medicamento.nome">
+</div>
+<div>
+    <input type="number", [(ngModel)]="medicamento.valor">
+</div>
+
+<div>
+    <button (click)="enviar(medicamento)"> Enviar formulário</button>
+</div>
+<p>{{ medicamento.nome}} : {{medicamento.valor}}</p>

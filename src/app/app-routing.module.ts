@@ -10,6 +10,10 @@ import { DiretivaNgIfComponent } from './diretiva-ng-if/diretiva-ng-if.component
 import { DiretivaNgSwitchComponent } from './diretiva-ng-switch/diretiva-ng-switch.component';
 import { ExemploPipesComponent } from './exemplo-pipes/exemplo-pipes.component';
 import { MicroondasComponent } from './microondas/microondas.component';
+import { CpPaiComponent } from './md-pai-filho/cp-pai/cp-pai.component';
+import { CpPaiComponent as CpPaiCompoent2 } from './md-filho-pai/cp-pai/cp-pai.component';
+import { CpAgrupadorComponent } from './md-service/cp-agrupador/cp-agrupador.component';
+import { CpTelaComponent } from './md-atv-modulo/cp-tela/cp-tela.component';
 
 const routes: Routes = [
   {path: "bindings", component: ExemploBindingComponent},
@@ -21,7 +25,11 @@ const routes: Routes = [
   {path: "ngSwitch", component: DiretivaNgSwitchComponent},
   {path: "pipes", component: ExemploPipesComponent},
   {path: "imc", component: NovoCompComponent},
-  {path: "microondas", component: MicroondasComponent}
+  {path: "microondas", component: MicroondasComponent},
+  {path: "pai_filho", component: CpPaiComponent},
+  {path: "filho_pai", component: CpPaiCompoent2},
+  {path: "agrupador", component: CpAgrupadorComponent},
+  {path: "tela", component: CpTelaComponent}
 ];
 
 @NgModule({
