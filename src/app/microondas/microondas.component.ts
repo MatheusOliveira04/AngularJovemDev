@@ -5,7 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './microondas.component.html',
   styleUrls: ['./microondas.component.scss']
 })
+
 export class MicroondasComponent {
+ contagemMinutos: number = 0;
+  contagemSegundos: number = 0;
+  intervalo:any;
   horarioSelecionado: string = '00:00';
   posicao: number = 5;
   repeticoes = -1;
@@ -15,7 +19,6 @@ export class MicroondasComponent {
    this.horarioSelecionado.charAt(1),
     this.horarioSelecionado.charAt(3),
    this.horarioSelecionado.charAt(4)];
-  
 
   pegarValorTempo(x: number) {
     if(this.quantidadeNumeroMaximaOcupar()){
@@ -52,7 +55,37 @@ export class MicroondasComponent {
     this.horarioSelecionado = this.lista[1] + this.lista[2] + ':' + this.lista[3] + this.lista[4];
   }
 
-  
+  comecar(): void{
+    this.intervalo = setInterval(() =>{
+     let recebeMinutos: string = this.lista[1];
+     recebeMinutos += this.lista[2];
+     let recebeSegundos:string = this.lista[3];
+     recebeSegundos += this.lista[4];
+     this.contagemMinutos = parseInt(recebeMinutos);
+     this.contagemSegundos = parseInt(recebeSegundos);
+     this.contagemSegundos--;
+     if (this.contagemSegundos === 0) {
+       if(this.contagemMinutos === 0 && this.contagemSegundos === 0){
+       this.para();
+       } else{
+       this.contagemMinutos--;
+       this.contagemSegundos = 59;
+       }
+     }
+     recebeSegundos = this.contagemSegundos.toString();
+     recebeMinutos = this.contagemMinutos.toString();
+     this.lista[4] = recebeSegundos.charAt(1); 
+     this.lista[3] = recebeSegundos.charAt(0); 
+     this.lista[2] = recebeMinutos.charAt(1);
+     this.lista[1] = recebeMinutos.charAt(0);
+     this.mostrar();
+    }, 1000);
+
+  }
+
+  para(){
+    clearInterval(this.intervalo), 1;
+  }
 
   cancelar() {
     this.horarioSelecionado = '00:00';
@@ -60,7 +93,8 @@ export class MicroondasComponent {
     this.repeticoes = -1;
     this.quantidadeNumeroMaxima = 0;
     for (let index = 0; index < this.lista.length; index++) {
-    this.lista[index] = '0';   
+    this.lista[index] = '0';  
+    this.para(); 
     }
   }
 
