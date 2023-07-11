@@ -1,1 +1,15 @@
-<p>diretiva-ng-model works!</p>
+<div >
+    <div
+    class="position"
+    [ngStyle]="{ top: valorVerticalStr, right: valorHorizontalStr }"></div>
+</div>
+<div class="posicao-abaixo">
+<button (click)="abaixo()">Abaixo</button>
+</div>
+<div class="posicao-acima">
+<button (click)="acima()">Acima</button>
+</div>
+<div class="posicao-horizontal">
+<button (click)="esquerda()">Esquerda</button>
+<button (click)="direita()">Direita</button>
+</div>

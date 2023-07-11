@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NovoCompComponent } from './novo-comp/novo-comp.component';
-import { JovemdevTitleComponent } from './jovemdev-title/jovemdev-title.component';
 import { DiretivaNgClassComponent } from './diretiva-ng-class/diretiva-ng-class.component';
 import { DiretivaNgForComponent } from './diretiva-ng-for/diretiva-ng-for.component';
 import { DiretivaNgIfComponent } from './diretiva-ng-if/diretiva-ng-if.component';
@@ -21,7 +20,6 @@ import { MicroondasComponent } from './microondas/microondas.component';
   declarations: [
     AppComponent,
     NovoCompComponent,
-    JovemdevTitleComponent,
     DiretivaNgClassComponent,
     DiretivaNgForComponent,
     DiretivaNgIfComponent,
@@ -41,4 +39,6 @@ import { MicroondasComponent } from './microondas/microondas.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

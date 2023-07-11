@@ -1,12 +1,28 @@
-<div class="color">
-    <div [style]="{'color': 'red'}">{{ aviso }}</div>
-    <div>
-    <button (click)="addValor()">adiciona</button>
-    <button (click)="tiraValor()">retira</button>
-  </div>
-  <div>
-    <div *ngFor="let mostra of lista" class="divList">
-        <div>{{mostra.numero}}</div>
+<div>
+  <div [ngStyle]="{'float': 'left'}">
+    <div class="estilo-erro">{{ aviso }}</div>
+    <br />
+
+    <div [ngClass]="['posicao-botao', 'formato-botao']">
+      <div>
+        <button (click)="addValor()">adiciona</button>
+        <button (click)="tiraValor()">retira</button>
+      </div>
+
+      <div>
+        <button (click)="mostrarLista()">Mostrar Imagens</button>
+      </div>
+    </div>
+
+    <div *ngFor="let mostra of lista">
+      <div class="formato-numero">{{ mostra.numero }}</div>
     </div>
   </div>
+  <div *ngIf="mostrar" class="imagem-container">
+    <div *ngFor="let mostra of lista">
+      <img [src]="imagem" alt="erro" />
+    </div>
+  </div>
+
+  <br />
 </div>

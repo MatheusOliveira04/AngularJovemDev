@@ -1,1 +1,38 @@
-<p>diretiva-ng-switch works!</p>
+<div class="box">
+    <div class="container">
+      <button (click)="florImg()">Flor</button>
+  
+      <button (click)="carroImg()">Carro</button>
+  
+      <button (click)="casaImg()">Casa</button>
+  
+      <button (click)="pessoaImg()">Pessoa</button>
+    </div>
+  
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="1">
+       <div>
+          <img [src]="img" alt="erro" />
+        </div>
+      </div>
+  
+      <div *ngSwitchCase="2">
+        <div>
+          <img [src]="img" alt="erro" />
+        </div>
+      </div>
+  
+      <div *ngSwitchCase="3">
+        <div>
+          <img [src]="img" alt="erro" />
+        </div>
+      </div>
+  
+      <div *ngSwitchCase="4">
+        <div>
+          <img [src]="img" alt="erro" />
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -1,1 +1,34 @@
-<p>diretiva-ng-if works!</p>
+<div>
+    <header>
+      <h1>Número Aleatório até 10</h1>
+    </header>
+  
+    <div class="format">
+      <div class="style-box">
+        <h2>Digite um número de 1 á 10</h2>
+        <input type="number" [(ngModel)]="escolhido"/>
+      <div>
+        <button (click)="gerarNumeroAleatorio()">Verificar</button>
+      </div>
+    </div>
+  
+      <div *ngIf="valida == false">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHw_9JnO8eTvHpEyZGUa7gxSZ7nVZ2IZBX9U2kKM1L_Q&s"
+          alt="erro"
+        />
+      </div>
+  
+      <div *ngIf="valida">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxsubDjH7v81YW9X6Bw9IWc5yykES8EEbadb-sdmfg0A&s"
+          alt="erro"
+        />
+      </div>
+  
+      <p>{{ resultado }}</p>
+      <p>O valor gerado foi: {{ numeroAleatorio }}</p>
+  
+    </div>
+  
+  </div>

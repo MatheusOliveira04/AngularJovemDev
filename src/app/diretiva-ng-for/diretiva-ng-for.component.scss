@@ -1,0 +1,40 @@
+img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .imagem-container {
+    display: flex;
+    justify-content: center; /* Centraliza as imagens horizontalmente */
+    flex-wrap: wrap; /* Permite que as imagens quebrem para uma nova linha */
+  }
+  
+  .formato-numero {
+    display: flex;
+    float: left;
+    margin-left: 6px;
+    font-weight: bolder;
+    font-style: italic;
+  }
+  
+  .posicao-botao button{
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .formato-botao button{
+    padding: 10px;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: green;
+    box-shadow: 2px 1px 10px 5px green;
+    font-weight: bolder;
+  }
+  
+  .estilo-erro{
+   color: green;
+   font-weight: bold;
+   border: solid;
+   border-radius: 10px;
+  }

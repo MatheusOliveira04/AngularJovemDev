@@ -1,0 +1,35 @@
+.position{
+    position: relative;
+    border: solid black;
+    border-radius: 15px;
+    background-color: darkgreen;
+    width: 75px;
+    height: 20px;
+}
+
+
+
+button{
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px 6px orange;
+}
+
+.posicao-horizontal button{
+    position: relative;
+    top: 220px;
+    left: 340px;
+    margin-left: 40px;
+}
+
+.posicao-acima button{
+    position: relative;
+    top: 200px;
+    left: 450px;
+}
+
+.posicao-abaixo{
+    position: relative;
+    top: 350px;
+    left: 450px;
+}

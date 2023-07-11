@@ -1,0 +1,26 @@
+.box {
+    background-color: black;
+    height: 700px;
+  }
+  
+  img {
+    width: 440px;
+    height: 440px;
+    position: relative;
+    top: 80px;
+    left: 30%;
+    right: 70%;
+    border: 10px double purple;
+  }
+  
+  button {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: -5px -10px 15px 2px purple;
+    color: purple;
+    position: relative;
+    top: 50px;
+    left: 300px;
+    margin-left: 10px;
+    width: 100px;
+  }
