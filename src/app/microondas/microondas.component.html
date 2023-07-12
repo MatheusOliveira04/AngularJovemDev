@@ -14,8 +14,8 @@
         <button [disabled]="estaLigado" (click)="pegarValorTempo(8)">8</button>
         <button [disabled]="estaLigado" (click)="pegarValorTempo(9)">9</button>
         <button [disabled]="estaLigado" (click)="pegarValorTempo(0)">0</button>
-        <button (click)="aumentaTempo(60)">+1min</button>
-        <button (click)="aumentaTempo(30)">+30seg</button>
+        <button (click)="aumentar(60)">+1min</button>
+        <button (click)="aumentar(30)">+30seg</button>
         <button (click)="cancelar()">cancelar</button>
         <button [disabled]="estaLigado" (click)="comecar()">iniciar</button>
     </div>

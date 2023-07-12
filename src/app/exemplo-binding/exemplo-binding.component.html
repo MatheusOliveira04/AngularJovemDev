@@ -1,7 +1,12 @@
 <div class="box-format">
-  <div class="center">
     <div>
         <p>valor do número: {{numero}}</p>
-    </div>
   </div>
+
+  <button [disabled]="maximo()" (click)="aumenta()"> aumentar 5</button>
+  <button [disabled]="minimo()" (click)="diminui()"> diminuir 5</button>
+
+  <img *ngIf="maximo() || minimo()" src="img" >
+
+  
 </div>

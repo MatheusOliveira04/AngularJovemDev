@@ -81,10 +81,7 @@ export class MicroondasComponent {
       }
       recebeSegundos = this.contagemSegundos.toString();
       recebeMinutos = this.contagemMinutos.toString();
-      this.lista[4] = recebeSegundos.charAt(1);
-      this.lista[3] = recebeSegundos.charAt(0);
-      this.lista[2] = recebeMinutos.charAt(1);
-      this.lista[1] = recebeMinutos.charAt(0);
+    this.listaRecebe(recebeSegundos, recebeMinutos);
       this.mostrar();
     }, 1000);
   }
@@ -106,16 +103,24 @@ export class MicroondasComponent {
   }
 
 
-  aumentaTempo(mais: number) {
-    let partesMinutos = this.horarioSelecionado.split(':');
-    let partesMinutoNumber: number = parseInt(partesMinutos[0]);
-    let partesSegundosNumber: number = parseInt(partesMinutos[1]);
-    if (mais >= 60) {
-      partesMinutoNumber += partesSegundosNumber % 60;
-      partesSegundosNumber = partesSegundosNumber / 60;
-    } else {
-      partesSegundosNumber += mais;
-    }
-    this.horarioSelecionado = partesMinutoNumber + ':' + partesSegundosNumber;
+  aumentar(aumenta: number){
+    this.contagemSegundos += aumenta;
+    if(this.contagemSegundos > 59){
+      this.contagemSegundos = 0;
+      this.contagemMinutos++;
+    } 
+      let recebeSegundos = this.contagemSegundos.toString();;
+      let recebeMinutos = this.contagemMinutos.toString();
+      console.log(recebeMinutos);
+      console.log(recebeSegundos);
+      this.listaRecebe(recebeSegundos, recebeMinutos);
+      this.mostrar();
+  }  
+
+  listaRecebe(recebeSegundos: string, recebeMinutos: string){
+      this.lista[4] = recebeSegundos.charAt(1);
+      this.lista[3] = recebeSegundos.charAt(0);
+      this.lista[2] = recebeMinutos.charAt(1);
+      this.lista[1] = recebeMinutos.charAt(0);
   }
 }

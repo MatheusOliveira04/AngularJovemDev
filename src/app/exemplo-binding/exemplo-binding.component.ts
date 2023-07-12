@@ -7,5 +7,29 @@ import { Component } from '@angular/core';
 })
 export class ExemploBindingComponent {
   numero: number = 0;
-  
+  img: string = '';
+
+  aumenta(){
+    this.numero += 5;
+  }
+
+  diminui(){
+    this.numero -= 5;
+  }
+
+  maximo(): boolean{
+    if(this.numero >= 50){
+      return true;
+    } 
+    this.img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQr0UKM4Ten8jaftzQ_bH40VwkV7tvVcxeuZAXNcM&s";
+    return false;
+  }
+
+  minimo(): boolean{
+    if(this.numero <= 0){
+      return true;
+    } 
+    this.img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQr0UKM4Ten8jaftzQ_bH40VwkV7tvVcxeuZAXNcM&s";
+    return false;
+  }
 }
