@@ -1,27 +1,25 @@
 import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceService {
-
   public evento = new EventEmitter();
 
-  public medicamento= {
+  public medicamento = {
     nome: '',
     valor: 0
   };
 
   public lista: Array<any> = [];
 
-public getLista(){
-  return this.lista;
-}
+  public getLista() {
+    return this.lista;
+  }
 
-public adicionar(medicamento: any){
-  this.lista.push(medicamento);
-  this.evento.emit(this.lista)
-};
+  public adicionar(medicamento: any) {
+    this.lista.push(medicamento);
+  }
 
-  constructor() { }
+  constructor() {}
 }

@@ -18,8 +18,8 @@ import { MicroondasComponent } from './microondas/microondas.component';
 import { MdPaiFilhoModule } from './md-pai-filho/md-pai-filho.module';
 import { MdFilhoPaiModule } from './md-filho-pai/md-filho-pai.module';
 import { MdServiceModule } from './md-service/md-service.module';
-import { MdAtvModuloModule } from './md-atv-modulo/md-atv-modulo.module';
 import { MeuPipePipe } from './meu-pipe.pipe';
+import { MdAtvModuloModule } from './md-atv-modulo/md-atv-modulo.module';
 
 @NgModule({
   declarations: [

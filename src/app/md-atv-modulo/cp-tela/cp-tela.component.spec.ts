@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CpAComponent } from './cp-a.component';
+import { CpTelaComponent } from './cp-tela.component';
 
-describe('CpAComponent', () => {
-  let component: CpAComponent;
-  let fixture: ComponentFixture<CpAComponent>;
+describe('CpTelaComponent', () => {
+  let component: CpTelaComponent;
+  let fixture: ComponentFixture<CpTelaComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CpAComponent]
+      declarations: [CpTelaComponent]
     });
-    fixture = TestBed.createComponent(CpAComponent);
+    fixture = TestBed.createComponent(CpTelaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

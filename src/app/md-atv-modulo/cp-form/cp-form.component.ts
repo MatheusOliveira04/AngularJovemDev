@@ -7,7 +7,6 @@ import { ServiceService } from '../services/service.service';
   styleUrls: ['./cp-form.component.scss']
 })
 export class CpFormComponent {
-
   public medicamento= {
     nome: '',
     valor: 0
@@ -16,8 +15,16 @@ export class CpFormComponent {
   //Injeção de dependências
   constructor(private service: ServiceService){}
 
-  public enviar(medicamento: any){
-    this.service.adicionar(medicamento);
+  public enviar(valor: any){
+    let obj = {
+      nome: valor.nome,
+      valor: valor.valor
+    }
+    this.medicamento = {
+      nome: '',
+      valor: 0
+    }
+    return this.service.adicionar(obj);
   }
 
   ngOnInit(){
