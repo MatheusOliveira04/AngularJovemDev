@@ -4,20 +4,20 @@
         </div>
 
     <div id="buttons">
-        <button (click)="pegarValorTempo(1)">1</button>
-        <button (click)="pegarValorTempo(2)">2</button>
-        <button (click)="pegarValorTempo(3)">3</button>
-        <button (click)="pegarValorTempo(4)">4</button>
-        <button (click)="pegarValorTempo(5)">5</button>
-        <button (click)="pegarValorTempo(6)">6</button>
-        <button (click)="pegarValorTempo(7)">7</button>
-        <button (click)="pegarValorTempo(8)">8</button>
-        <button (click)="pegarValorTempo(9)">9</button>
-        <button (click)="pegarValorTempo(0)">0</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(1)">1</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(2)">2</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(3)">3</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(4)">4</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(5)">5</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(6)">6</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(7)">7</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(8)">8</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(9)">9</button>
+        <button [disabled]="estaLigado" (click)="pegarValorTempo(0)">0</button>
         <button (click)="aumentaTempo(60)">+1min</button>
         <button (click)="aumentaTempo(30)">+30seg</button>
         <button (click)="cancelar()">cancelar</button>
-        <button (click)="comecar()">iniciar</button>
+        <button [disabled]="estaLigado" (click)="comecar()">iniciar</button>
     </div>
 
 </div>

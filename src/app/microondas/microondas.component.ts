@@ -3,33 +3,34 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-microondas',
   templateUrl: './microondas.component.html',
-  styleUrls: ['./microondas.component.scss']
+  styleUrls: ['./microondas.component.scss'],
 })
-
 export class MicroondasComponent {
- contagemMinutos: number = 0;
+  contagemMinutos: number = 0;
   contagemSegundos: number = 0;
-  intervalo:any;
+  estaLigado: boolean = false;
+  intervalo: any;
   horarioSelecionado: string = '00:00';
   posicao: number = 5;
   repeticoes = -1;
   quantidadeNumeroMaxima = 0;
-  lista: string[] = [ 
+  lista: string[] = [
     this.horarioSelecionado.charAt(0),
-   this.horarioSelecionado.charAt(1),
+    this.horarioSelecionado.charAt(1),
     this.horarioSelecionado.charAt(3),
-   this.horarioSelecionado.charAt(4)];
+    this.horarioSelecionado.charAt(4),
+  ];
 
   pegarValorTempo(x: number) {
-    if(this.quantidadeNumeroMaximaOcupar()){
+    if (this.quantidadeNumeroMaximaOcupar()) {
       this.posicao--;
       this.repeticoes++;
       if (this.repeticoes === 1) {
         this.lista[this.posicao] = this.lista[this.posicao + 1];
-        if(this.posicao <= 2){
-          this.lista[this.posicao + 1] = this.lista[this.posicao + 2]
-          if(this.posicao === 1){
-            this.lista[this.posicao + 2] = this.lista[this.posicao + 3 ]
+        if (this.posicao <= 2) {
+          this.lista[this.posicao + 1] = this.lista[this.posicao + 2];
+          if (this.posicao === 1) {
+            this.lista[this.posicao + 2] = this.lista[this.posicao + 3];
           }
         }
         this.lista[4] = x.toString();
@@ -44,47 +45,53 @@ export class MicroondasComponent {
   }
 
   quantidadeNumeroMaximaOcupar(): boolean {
-    if(this.quantidadeNumeroMaxima != 4){
+    if (this.quantidadeNumeroMaxima != 4) {
       return true;
     } else {
       return false;
     }
   }
 
-  mostrar(){
-    this.horarioSelecionado = this.lista[1] + this.lista[2] + ':' + this.lista[3] + this.lista[4];
+  mostrar() {
+    this.horarioSelecionado =
+    this.lista[1] + this.lista[2] + ':' + this.lista[3] + this.lista[4];
+    let partes = this.horarioSelecionado.split(':');
+    let horas = partes[0].padStart(2, '0');
+    let minutos = partes[1].padStart(2, '0');
+    this.horarioSelecionado = `${horas}:${minutos}`;
   }
 
-  comecar(): void{
-    this.intervalo = setInterval(() =>{
-     let recebeMinutos: string = this.lista[1];
-     recebeMinutos += this.lista[2];
-     let recebeSegundos:string = this.lista[3];
-     recebeSegundos += this.lista[4];
-     this.contagemMinutos = parseInt(recebeMinutos);
-     this.contagemSegundos = parseInt(recebeSegundos);
-     this.contagemSegundos--;
-     if (this.contagemSegundos === 0) {
-       if(this.contagemMinutos === 0 && this.contagemSegundos === 0){
-       this.para();
-       } else{
-       this.contagemMinutos--;
-       this.contagemSegundos = 59;
-       }
-     }
-     recebeSegundos = this.contagemSegundos.toString();
-     recebeMinutos = this.contagemMinutos.toString();
-     this.lista[4] = recebeSegundos.charAt(1); 
-     this.lista[3] = recebeSegundos.charAt(0); 
-     this.lista[2] = recebeMinutos.charAt(1);
-     this.lista[1] = recebeMinutos.charAt(0);
-     this.mostrar();
+  comecar(): void {
+    this.estaLigado = true;
+    this.intervalo = setInterval(() => {
+      let recebeMinutos: string = this.lista[1];
+      recebeMinutos += this.lista[2];
+      let recebeSegundos: string = this.lista[3];
+      recebeSegundos += this.lista[4];
+      this.contagemMinutos = parseInt(recebeMinutos);
+      this.contagemSegundos = parseInt(recebeSegundos);
+      this.contagemSegundos--;
+      if (this.contagemSegundos === 0) {
+        if (this.contagemMinutos === 0 && this.contagemSegundos === 0) {
+          this.para();
+        } else {
+          this.contagemMinutos--;
+          this.contagemSegundos = 59;
+        }
+      }
+      recebeSegundos = this.contagemSegundos.toString();
+      recebeMinutos = this.contagemMinutos.toString();
+      this.lista[4] = recebeSegundos.charAt(1);
+      this.lista[3] = recebeSegundos.charAt(0);
+      this.lista[2] = recebeMinutos.charAt(1);
+      this.lista[1] = recebeMinutos.charAt(0);
+      this.mostrar();
     }, 1000);
-
   }
 
-  para(){
+  para() {
     clearInterval(this.intervalo), 1;
+    this.estaLigado = false;
   }
 
   cancelar() {
@@ -93,10 +100,11 @@ export class MicroondasComponent {
     this.repeticoes = -1;
     this.quantidadeNumeroMaxima = 0;
     for (let index = 0; index < this.lista.length; index++) {
-    this.lista[index] = '0';  
-    this.para(); 
+      this.lista[index] = '0';
+      this.para();
     }
   }
+
 
   aumentaTempo(mais: number) {
     let partesMinutos = this.horarioSelecionado.split(':');
