@@ -1,1 +1,8 @@
-<p>diretiva-ng-style works!</p>
+<div>
+  <h1>Style Class</h1>
+  <div ngClass="format" [ngStyle]="{ background: corSelecionada }">
+    <button *ngFor="let cor of list" (click)="selecionaCor(cor)">
+      {{ cor }}
+    </button>
+  </div>
+</div>

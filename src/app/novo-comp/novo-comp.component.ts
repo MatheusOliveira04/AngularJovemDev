@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-novo-comp',
   templateUrl: './novo-comp.component.html',
-  styleUrls: ['./novo-comp.component.scss']
+  styleUrls: ['./novo-comp.component.scss'],
 })
 export class NovoCompComponent {
-
   name: string = '';
   weight: number = 0;
   height: number = 0;
@@ -20,10 +19,15 @@ export class NovoCompComponent {
     this.calculaIMC();
     this.avaliaIMC();
     this.emojiIMC();
-    if (this.name === '' || this.weight <= 0 || this.height <= 0 || this.sexo == '') {
-      this.msg = `Dados inválidos, preencha todos os campos`
+    if (
+      this.name === '' ||
+      this.weight <= 0 ||
+      this.height <= 0 ||
+      this.sexo == ''
+    ) {
+      this.msg = `Dados inválidos, preencha todos os campos`;
     } else {
-      this.msg = `Nome: ${this.name} \nPeso: ${this.weight} \nAltura: ${this.height} \nSexo: ${this.sexo} \nIMC: ${this.imc} \nAvaliação: ${this.data}`
+      this.msg = `Nome: ${this.name} \nPeso: ${this.weight} \nAltura: ${this.height} \nSexo: ${this.sexo} \nIMC: ${this.imc} \nAvaliação: ${this.data}`;
     }
   }
 
@@ -43,37 +47,27 @@ export class NovoCompComponent {
     if (this.sexo == 'masculino') {
       if (this.imc < 20.7) {
         this.data = `Abaixo do peso`;
-      }
-      else if (this.imc >= 20.7 && this.imc < 26.4) {
+      } else if (this.imc >= 20.7 && this.imc < 26.4) {
         this.data = `Peso normal`;
-      }
-      else if (this.imc >= 26.4 && this.imc < 27.8) {
+      } else if (this.imc >= 26.4 && this.imc < 27.8) {
         this.data = `Marginalmente acima do peso`;
-      }
-      else if (this.imc >= 27.8 && this.imc < 31.1) {
+      } else if (this.imc >= 27.8 && this.imc < 31.1) {
         this.data = `Acima do peso ideal`;
-      }
-      else {
+      } else {
         this.data = `acima do peso`;
       }
     } else {
       if (this.imc < 19.1) {
-        this.data = `Abaixo do peso`
-      }
-      else if (this.imc >= 19.1 && this.imc < 25.8) {
-        this.data = `Peso normal`
-      }
-      else if (this.imc >= 25.8 && this.imc < 27.30) {
-        this.data = `Marginalmente acima do peso`
-      }
-      else if (this.imc >= 27.3 && this.imc < 32.3) {
-        this.data = `Acima do peso ideal`
-      }
-      else {
-        this.data = `acima do peso`
+        this.data = `Abaixo do peso`;
+      } else if (this.imc >= 19.1 && this.imc < 25.8) {
+        this.data = `Peso normal`;
+      } else if (this.imc >= 25.8 && this.imc < 27.3) {
+        this.data = `Marginalmente acima do peso`;
+      } else if (this.imc >= 27.3 && this.imc < 32.3) {
+        this.data = `Acima do peso ideal`;
+      } else {
+        this.data = `acima do peso`;
       }
     }
   }
-
-
 }

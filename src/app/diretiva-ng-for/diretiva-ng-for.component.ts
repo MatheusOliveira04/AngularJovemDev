@@ -18,14 +18,14 @@ export class DiretivaNgForComponent {
   }
 
   public addValor() {
-    if(this.numero === 0){
+    if (this.numero === 0) {
       this.numero = 1;
-    }  else if (this.numero <= 10) {
+    } else if (this.numero <= 10) {
       this.lista.push({ numero: this.numero });
       this.numero++;
       this.aviso = '';
-    }  else {
-    this.aviso = 'Número máximo atingido';
+    } else {
+      this.aviso = 'Número máximo atingido';
     }
   }
 

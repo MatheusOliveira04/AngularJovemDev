@@ -6,11 +6,6 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class ServiceService {
   public evento = new EventEmitter();
 
-  public medicamento = {
-    nome: '',
-    valor: 0
-  };
-
   public lista: Array<any> = [];
 
   public getLista() {

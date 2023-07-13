@@ -1,17 +1,34 @@
-<h1>Pipes</h1>
-<label for="meuInput">Valor:</label>
-<input type="text" id="meuInput" placeholder="UDS 0,000.000" [(ngModel)]="value">
-<p>Valor em real: {{ value | currency: 'BRL':'R$'}}</p>
-<p>Valor convertido para dólar: {{ convertDolarToReal() | currency: 'USD':'code'}}</p>
-<p>Valor convertido para euro: {{ convertEuroToReal() | currency: 'EUR':'symbol'}}</p>
+<div id="format">
+  <div class="style">
+    <h1>Pipes</h1>
+    <label for="meuInput">Valor:</label>
+    <input
+      type="text"
+      id="meuInput"
+      placeholder="R$ 0.000,00"
+      [(ngModel)]="value"
+    />
+    <p>Valor em real: {{ value | currency : "BRL" : "R$" }}</p>
+    <p>
+      Valor convertido para dólar:
+      {{ convertDolarToReal() | currency : "USD" : "code" }}
+    </p>
+    <p>
+      Valor convertido para euro:
+      {{ convertEuroToReal() | currency : "EUR" : "symbol" }}
+    </p>
 
-<hr>
+    <div id="split"></div>
 
-<p>Escreva uma palavra</p>
-<input type="text" [(ngModel)]="word">
-<p>Escreva qual letra da palavra que você escreveu, você deseja trocar</p>
-<input type="text" [(ngModel)]="letter">
-<p>Por qual letra deseja trocar?</p>
-<input type="text" [(ngModel)]="replace">
-<button (click)="see()">Ver</button>
-<p *ngIf="seeWord">{{ word | meuPipe: letter : replace}}</p>
+    <p>Escreva uma palavra</p>
+    <input type="text" [(ngModel)]="word" />
+    <p>Escreva qual letra da palavra que você escreveu, você deseja trocar</p>
+    <input type="text" [(ngModel)]="letter" />
+    <p>Por qual letra deseja trocar?</p>
+    <input type="text" [(ngModel)]="replace" />
+    <button (click)="see()">Ver</button>
+  </div>
+  <h2 *ngIf="seeWord" [ngStyle]="{ 'font-size': 'xx-large' }">
+    {{ word | meuPipe : letter : replace }}
+  </h2>
+</div>

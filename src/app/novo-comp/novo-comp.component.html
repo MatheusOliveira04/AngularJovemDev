@@ -1,48 +1,77 @@
 <div>
-    <div class="componentIMC">
-    <h1 style="font-style: italic;">Tabela</h1>
-    <img src="https://logovectordl.com/wp-content/uploads/2021/10/imc-industrial-marketing-corporation-sa-logo-vector.png">
+  <div class="componentIMC">
+    <h1 style="font-style: italic">Tabela</h1>
+    <img
+      src="https://logovectordl.com/wp-content/uploads/2021/10/imc-industrial-marketing-corporation-sa-logo-vector.png"
+    />
+  </div>
+
+  <div class="box-black">
+    <div class="color-text">
+      <div class="emoji">
+        <img [src]="emoji" />
+        <img [src]="emoji" />
+      </div>
+
+      <div>
+        <label for="txtNome">Digite seu nome: </label>
+        <input
+          type="text"
+          [(ngModel)]="name"
+          id="txtNome"
+          name="txtNome"
+          class="input-text"
+        />
+      </div>
+
+      <div style="padding-top: 30px">
+        <label for="txtPeso">Digite seu peso: </label>
+        <input
+          type="number"
+          [(ngModel)]="weight"
+          id="txtPeso"
+          name="txtPeso"
+          class="input-text"
+        />
+      </div>
+
+      <div style="padding-top: 30px">
+        <label for="txtAltura">Digite seu tamanho:</label>
+        <input
+          type="number"
+          [(ngModel)]="height"
+          id="txtAltura"
+          name="txtAltura"
+          class="input-text"
+        />
+      </div>
+
+      <div class="radio-sexo">
+        <label for="txtSexo">Sexo: </label>
+        <input
+          type="radio"
+          [(ngModel)]="sexo"
+          name="txtSexo"
+          value="Masculino"
+        />
+        Masculino
+        <input type="radio" [(ngModel)]="sexo" value="Feminino" /> Feminino
+      </div>
+
+      <div>
+        <button (click)="mostraIMC()">Avaliar</button>
+      </div>
+
+      <div>
+        <textarea
+          readonly="true"
+          name="txtDados"
+          id="txtDados"
+          cols="30"
+          rows="10"
+          >{{ msg }}</textarea
+        >
+      </div>
     </div>
-
-
-    <div class="box-black">
-        <div class="color-text">
-
-            <div class="emoji">
-                <img [src]="emoji">
-                <img [src]="emoji">
-            </div>
-
-            <div> 
-            <label for="txtNome">Digite seu nome: </label>
-            <input type="text" [(ngModel)]="name" id="txtNome" name="txtNome" class="input-text">
-            </div>
-
-            <div style="padding-top: 30px;">
-                <label for="txtPeso">Digite seu peso: </label>
-                <input type="number" [(ngModel)]="weight" id="txtPeso" name="txtPeso" class="input-text">
-            </div>
-           
-            <div style="padding-top: 30px;">
-                <label for="txtAltura">Digite seu tamanho:</label>
-                <input type="number" [(ngModel)]="height" id="txtAltura" name="txtAltura" class="input-text">
-            </div>
-            
-            <div class="radio-sexo">
-                <label for="txtSexo">Sexo: </label>
-                <input type="radio" [(ngModel)]="sexo" name="txtSexo" value="Masculino"> Masculino
-                <input type="radio" [(ngModel)]="sexo" value="Feminino"> Feminino
-            </div>
-
-            <div>
-                <button (click)="mostraIMC()">Avaliar</button>
-            </div>
-            
-            <div>
-                <textarea readonly="true" name="txtDados" id="txtDados" cols="30" rows="10">{{ msg }}</textarea>
-            </div>
-
-
-        </div>
-    </div>
+  </div>
 </div>

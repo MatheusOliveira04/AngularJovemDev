@@ -1,77 +1,77 @@
 .componentIMC {
-    position: relative;
-  }
-  
-  img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100px;
-  }
-  
-  h1 {
-    top: 0;
-    left: 0;
-    text-align: left;
-    font-size: 80px;
-    margin-top: 0px;
-  }
+  position: relative;
+}
 
-  .box-black{
-    background-color: black;
-    width: 50%;
-    height: 550px;
-    margin-top: 0px;
-    margin-right: 25%;
-    margin-left: 25%;
-  }
+img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100px;
+}
 
-  .color-text{
-   color: white;
-   text-align: center;
-   font-size: 30px;
-   padding-top: 40px;
-   text-shadow: 4px 4px 4px red;
-  }
+h1 {
+  top: 0;
+  left: 0;
+  text-align: left;
+  font-size: 80px;
+  margin-top: 0px;
+}
 
-  .input-text{
-    border-radius: 10px;
-    height: 20px;
-    width: 250px;
-    padding-top: 10px;
-    font-size: 20px;
-    box-shadow: 10px 10px 10px red;
-  }
+.box-black {
+  background-color: black;
+  width: 50%;
+  height: 550px;
+  margin-top: 0px;
+  margin-right: 25%;
+  margin-left: 25%;
+}
 
-  textarea{
-    position: absolute;
-    margin-top: 100px;
-    right: 32%;
-    padding: 20px;
-    box-shadow: 10px 10px 10px red;
-  }
+.color-text {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 40px;
+  text-shadow: 4px 4px 4px red;
+}
 
-  button{
-    position: absolute;
-    margin-top: 40px;
-    right: 34%;
-    border-radius: 10px;
-    width: 200px;
-    height: 25px;
-    font-weight: bold;
-    font-size: 18px;
-    box-shadow: 10px 10px 10px red;
-  }
+.input-text {
+  border-radius: 10px;
+  height: 20px;
+  width: 250px;
+  padding-top: 10px;
+  font-size: 20px;
+  box-shadow: 10px 10px 10px red;
+}
 
-  .radio-sexo{
-    font-size: 25px;
-    position: relative;
-    top: 20px;
-    right: 80px;
-  }
-  
-  .emoji{
-    position: relative;
-    top: 350px;
-    right: 30px;
-  }
+textarea {
+  position: absolute;
+  margin-top: 100px;
+  right: 32%;
+  padding: 20px;
+  box-shadow: 10px 10px 10px red;
+}
+
+button {
+  position: absolute;
+  margin-top: 40px;
+  right: 34%;
+  border-radius: 10px;
+  width: 200px;
+  height: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 10px 10px 10px red;
+}
+
+.radio-sexo {
+  font-size: 25px;
+  position: relative;
+  top: 20px;
+  right: 80px;
+}
+
+.emoji {
+  position: relative;
+  top: 350px;
+  right: 30px;
+}

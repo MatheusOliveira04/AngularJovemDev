@@ -1,0 +1,38 @@
+#format {
+  background-color: cornflowerblue;
+  width: 700px;
+  height: 650px;
+  border: 10px solid black;
+  margin-left: 10%;
+  text-align: center;
+}
+
+#split {
+  border: 3px solid black;
+  margin-top: 50px;
+}
+
+.style p,
+.style label {
+  font-size: larger;
+  font-weight: bold;
+  text-shadow: 5px 5px 5px blueviolet;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 5px 5px 5px blueviolet;
+}
+
+input,
+button {
+  padding: 5px;
+  border-radius: 10px;
+  border: 4px solid black;
+  box-shadow: 10px 10px 5px blueviolet;
+  margin: 0px 10px;
+}
+
+button {
+  width: 70px;
+}

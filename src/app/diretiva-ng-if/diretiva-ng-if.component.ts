@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-diretiva-ng-if',
   templateUrl: './diretiva-ng-if.component.html',
-  styleUrls: ['./diretiva-ng-if.component.scss']
+  styleUrls: ['./diretiva-ng-if.component.scss'],
 })
 export class DiretivaNgIfComponent {
   public numeroAleatorio: number = 0;
@@ -22,9 +22,8 @@ export class DiretivaNgIfComponent {
   gerarNumeroAleatorio() {
     this.numeroAleatorio = Math.floor(Math.random() * 10) + 1;
     this.valida = this.verificaNumero();
-  
   }
-  
+
   verificaNumero(): boolean {
     this.valida = this.validaNumero();
     if (this.valida == true) {

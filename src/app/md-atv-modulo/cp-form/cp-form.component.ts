@@ -24,13 +24,5 @@ export class CpFormComponent {
       nome: '',
       valor: 0
     }
-    return this.service.adicionar(obj);
-  }
-
-  ngOnInit(){
-    this.service.evento.subscribe({
-      next: (res: any) => this.medicamento = res,
-      error:(erro: any) => this.medicamento = {nome: '', valor: 0}
-    })
   }
 }
