@@ -20,9 +20,9 @@ export class CpFormComponent {
       nome: valor.nome,
       valor: valor.valor
     }
-    this.medicamento = {
-      nome: '',
-      valor: 0
-    }
+    console.log(this.medicamento.nome);
+    console.log(this.medicamento.valor);
+
+    this.service.adicionar(obj);
   }
 }

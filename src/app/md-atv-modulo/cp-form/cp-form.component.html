@@ -1,12 +1,12 @@
-<h2>Formulário</h2>
+<h1>Formulário</h1>
 
-<div>
+<div class="sytleInput">
     <input type="text" [(ngModel)]="medicamento.nome">
 </div>
-<div>
+<div class="sytleInput">
     <input type="number" [(ngModel)]="medicamento.valor">
 </div>
 
 <div>
-    <button (click)="enviar(medicamento)"> Enviar formulário</button>
+    <button id="buttonId" (click)="enviar(medicamento)"> Enviar formulário</button>
 </div>
