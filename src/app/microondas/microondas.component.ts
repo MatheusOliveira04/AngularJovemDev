@@ -6,121 +6,88 @@ import { Component } from '@angular/core';
   styleUrls: ['./microondas.component.scss'],
 })
 export class MicroondasComponent {
-  contagemMinutos: number = 0;
-  contagemSegundos: number = 0;
-  estaLigado: boolean = false;
-  intervalo: any;
-  horarioSelecionado: string = '00:00';
-  posicao: number = 5;
-  repeticoes = -1;
-  quantidadeNumeroMaxima = 0;
-  lista: string[] = [
-    this.horarioSelecionado.charAt(0),
-    this.horarioSelecionado.charAt(1),
-    this.horarioSelecionado.charAt(3),
-    this.horarioSelecionado.charAt(4),
+  public minutos: number = 0;
+  public segundos: number = 0;
+  public numeroTempo: string = '';
+  public mostrarTempo: string = '';
+  public quantidade: number = 0;
+  public estaLigado = false;
+  public intervalo: any;
+  public numeros: Array<string> = [
+    '0','1','2','3','4','5','6','7','8','9',
   ];
 
-  pegarValorTempo(x: number) {
-    if (this.quantidadeNumeroMaximaOcupar()) {
-      this.posicao--;
-      this.repeticoes++;
-      if (this.repeticoes === 1) {
-        this.lista[this.posicao] = this.lista[this.posicao + 1];
-        if (this.posicao <= 2) {
-          this.lista[this.posicao + 1] = this.lista[this.posicao + 2];
-          if (this.posicao === 1) {
-            this.lista[this.posicao + 2] = this.lista[this.posicao + 3];
-          }
-        }
-        this.lista[4] = x.toString();
-        this.repeticoes--;
-        this.quantidadeNumeroMaxima++;
-      } else {
-        this.lista[4] = x.toString();
-        this.quantidadeNumeroMaxima++;
-      }
+  public pegarNumero(index: number) {
+    if (this.quantidadeDigitos()) {
+      this.numeroTempo += this.numeros[index];
+      this.mostrarTempo = this.numeroTempo.padStart(4, '0');
+      this.minutos = parseInt(this.mostrarTempo.substring(0, 2));
+      this.segundos = parseInt(this.mostrarTempo.substring(2, 4));
+      this.validaRelogio();
+      this.mostrar();
     }
-    this.mostrar();
   }
 
-  quantidadeNumeroMaximaOcupar(): boolean {
-    if (this.quantidadeNumeroMaxima != 4) {
+  public quantidadeDigitos(): boolean {
+    if (this.quantidade < 4) {
+      this.quantidade++;
       return true;
     } else {
       return false;
     }
   }
 
-  mostrar() {
-    this.horarioSelecionado =
-    this.lista[1] + this.lista[2] + ':' + this.lista[3] + this.lista[4];
-    let partes = this.horarioSelecionado.split(':');
-    let horas = partes[0].padStart(2, '0');
-    let minutos = partes[1].padStart(2, '0');
-    this.horarioSelecionado = `${horas}:${minutos}`;
+  public validaRelogio() {
+    if (this.segundos > 59) {
+      this.minutos += Math.floor(this.segundos / 60);
+      this.segundos = this.segundos % 60;
+      this.numeroTempo = `${this.minutos} ${this.segundos}`;
+    }
   }
 
-  comecar(): void {
+  public mostrar() {
+    let minutosTempo = this.minutos.toString().padStart(2, '0');
+    let segundosTempo = this.segundos.toString().padStart(2, '0');
+    this.mostrarTempo = `${minutosTempo} : ${segundosTempo}`;
+  }
+
+  public aumentar(valor: number) {
+    this.segundos += valor;
+    this.validaRelogio();
+    this.mostrar();
+    this.quantidade = 4;
+  }
+
+  public cancelar() {
+    this.minutos = 0;
+    this.segundos = 0;
+    this.numeroTempo = '';
+    this.mostrarTempo = '';
+    this.quantidade = 0;
+    this.parar();
+  }
+
+  comecar() {
     this.estaLigado = true;
     this.intervalo = setInterval(() => {
-      let recebeMinutos: string = this.lista[1];
-      recebeMinutos += this.lista[2];
-      let recebeSegundos: string = this.lista[3];
-      recebeSegundos += this.lista[4];
-      this.contagemMinutos = parseInt(recebeMinutos);
-      this.contagemSegundos = parseInt(recebeSegundos);
-      this.contagemSegundos--;
-      if (this.contagemSegundos === 0) {
-        if (this.contagemMinutos === 0 && this.contagemSegundos === 0) {
-          this.para();
+      if (this.minutos <= 0 && this.segundos <= 0) {
+        this.cancelar();
+      }
+      this.segundos--;
+      if (this.segundos <= 0) {
+        if (this.minutos <= 0 && this.segundos <= 0) {
+          this.cancelar();
         } else {
-          this.contagemMinutos--;
-          this.contagemSegundos = 59;
+          this.segundos = 59;
+          this.minutos--;
         }
       }
-      recebeSegundos = this.contagemSegundos.toString();
-      recebeMinutos = this.contagemMinutos.toString();
-    this.listaRecebe(recebeSegundos, recebeMinutos);
       this.mostrar();
     }, 1000);
   }
 
-  para() {
-    clearInterval(this.intervalo), 1;
+  parar() {
+    clearInterval(this.intervalo);
     this.estaLigado = false;
-  }
-
-  cancelar() {
-    this.horarioSelecionado = '00:00';
-    this.posicao = 5;
-    this.repeticoes = -1;
-    this.quantidadeNumeroMaxima = 0;
-    for (let index = 0; index < this.lista.length; index++) {
-      this.lista[index] = '0';
-      this.para();
-    }
-  }
-
-
-  aumentar(aumenta: number){
-    this.contagemSegundos += aumenta;
-    if(this.contagemSegundos > 59){
-      this.contagemSegundos = 0;
-      this.contagemMinutos++;
-    } 
-      let recebeSegundos = this.contagemSegundos.toString();;
-      let recebeMinutos = this.contagemMinutos.toString();
-      console.log(recebeMinutos);
-      console.log(recebeSegundos);
-      this.listaRecebe(recebeSegundos, recebeMinutos);
-      this.mostrar();
-  }  
-
-  listaRecebe(recebeSegundos: string, recebeMinutos: string){
-      this.lista[4] = recebeSegundos.charAt(1);
-      this.lista[3] = recebeSegundos.charAt(0);
-      this.lista[2] = recebeMinutos.charAt(1);
-      this.lista[1] = recebeMinutos.charAt(0);
   }
 }
